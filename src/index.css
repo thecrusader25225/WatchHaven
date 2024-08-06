@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .subhead{
+        @apply text-3xl 
+    }
+    .name{
+        @apply text-2xl 
+    }
+    .brand{
+        @apply font-bold text-base
+    }
+    .price{
+        @apply italic text-base
+    }
+    .style{
+        @apply text-base font-mono
+    }
+    .features{
+        @apply text-base
+    }
+    .type{
+        @apply text-sm font-mono
+    }
+    .card{
+        @apply flex flex-col border w-80 h-auto max-h-64 flex-shrink-0 justify-center items-center
+    }
+    .section{
+        @apply border w-full h-auto  flex flex-col justify-center 
+
+    }
+}
