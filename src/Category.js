@@ -38,23 +38,30 @@ export default function Category({
           item[prop] === currentParam[prop] && (
             <span className="w-full h-auto p-4 flex justify-between items-center border">
               <button
-                className="flex flex-col"
+                className="flex items-center"
                 onClick={() => {
                   setCurrentItem(item);
                   navigate("/inspect");
                 }}
               >
-                <p className="name text-center break-words">{item.name}</p>
-                <span>
-                  <p className="inline">
-                    {prop === "style"
-                      ? `Brand: ${item.brand}`
-                      : `Style: ${item.style}`}{" "}
-                    |{" "}
-                  </p>
-                  <p className="type inline">Type: {item.type}</p>
+                <img
+                  src={item.img}
+                  alt="img"
+                  className="cardImg mx-2 w-24 h-24 min-w-24 min-h-24"
+                />
+                <span className="flex flex-col justify-center items-start">
+                  <p className="name text-start break-words">{item.name}</p>
+                  <span>
+                    <p className="inline">
+                      {prop === "style"
+                        ? `Brand: ${item.brand}`
+                        : `Style: ${item.style}`}{" "}
+                      |{" "}
+                    </p>
+                    <p className="type inline">Type: {item.type}</p>
+                  </span>
+                  <p className="price text-2xl">Rs. {item.price} /-</p>
                 </span>
-                <p className="price text-2xl">Rs. {item.price} /-</p>
               </button>
               <span className="flex justify-between  h-16 border">
                 {cartItems.some((cartItem) => cartItem.id === item.id) ? (

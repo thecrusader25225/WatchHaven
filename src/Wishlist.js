@@ -28,29 +28,40 @@ export default function Wishlist({
 
   console.log("Subtotal: ", subtotal);
   return (
-    <div className="w-1/3 min-w-96 h-full top-0 right-0 absolute border backdrop-blur-sm p-4 flex flex-col pt-24">
+    <div className="w-[calc(40%)] min-w-96 h-full top-0 right-0 absolute border backdrop-blur-sm p-4 flex flex-col pt-24 bg-black bg-opacity-50">
       <span className="flex justify-between">
         <p>Wishlist</p>
         <CgClose onClick={() => setIsWishlistOpen(false)} />
       </span>
       <span className="h-auto overflow-y-auto w-full">
         {wishlistItems.map((item) => (
-          <div className="w-full h-16 flex items-center justify-between border">
-            <p>{item.name}</p>
-            <p>Rs. {item.price} /-</p>
-            {cartItems.some((cartItem) => cartItem.id === item.id) ? (
-              <button
-                onClick={() => {
-                  setIsCartOpen(true);
-                  setIsWishlistOpen(false);
-                }}
-              >
-                Go to Cart
-              </button>
-            ) : (
-              <button onClick={() => addItemToCart(item)}>Add To Cart</button>
-            )}
-            <CgClose onClick={() => handleUnlist(item)} />
+          <div className="w-full h-auto my-2 py-2 flex items-center justify-between border">
+            <span className="flex items-center">
+              <img
+                src={item.img}
+                alt="img"
+                className="cardImg mx-2 w-20 h-20 min-w-20 min-h-20"
+              />
+              <span className="flex flex-col">
+                <p>{item.name}</p>
+                <p>Rs. {item.price} /-</p>
+              </span>
+            </span>
+            <span className="flex items-center">
+              {cartItems.some((cartItem) => cartItem.id === item.id) ? (
+                <button
+                  onClick={() => {
+                    setIsCartOpen(true);
+                    setIsWishlistOpen(false);
+                  }}
+                >
+                  Go to Cart
+                </button>
+              ) : (
+                <button onClick={() => addItemToCart(item)}>Add To Cart</button>
+              )}
+              <CgClose onClick={() => handleUnlist(item)} />
+            </span>
           </div>
         ))}
       </span>

@@ -17,10 +17,23 @@ export default function Checkout({
       </span>
       <span className="h-auto overflow-y-auto w-full flex flex-col">
         {cartItems.map((item) => (
-          <div className="w-full h-16 flex items-center justify-between border">
-            <span className="flex w-1/2 justify-between">
-              <p>{item.name}</p>
-              <p>x{item.count}</p>
+          <div className="w-full h-auto p-4 flex items-center justify-between border">
+            <span className="flex w-2/3 justify-between items-center">
+              <span className="flex items-center">
+                <img
+                  src={item.img}
+                  alt="img"
+                  className="cardImg mx-2 w-20 h-20 min-w-20 min-h-20"
+                />
+                <span className="flex flex-col">
+                  <p className="name">{item.name}</p>
+                  <p className="brand">Brand: {item.brand}</p>
+                  <p className="style">
+                    {item.style} | {item.type}
+                  </p>
+                </span>
+              </span>
+              <p className="p-4 font-bold">x{item.count}</p>
             </span>
             <p>Rs. {item.price * item.count} /-</p>
           </div>

@@ -45,7 +45,12 @@ export default function Home({
                 navigate("/category/styles");
               }}
             >
-              <p>{style}</p>
+              <img
+                src={allItems.find((item) => item.style === style)?.img || "#"}
+                className="cardImg"
+                alt={style}
+              />
+              <p className="text-3xl font-thin">{style}</p>
             </button>
           ))}
         </span>
@@ -62,7 +67,12 @@ export default function Home({
                 navigate("/category/brands");
               }}
             >
-              <p>{brand}</p>
+              <img
+                src={allItems.find((item) => item.brand === brand)?.img || "#"}
+                className="cardImg"
+                alt={brand}
+              />
+              <p className="text-3xl font-thin">{brand}</p>
             </button>
           ))}
         </span>
@@ -76,12 +86,13 @@ export default function Home({
               item.style === "Sports" && (
                 <span className="card">
                   <button
-                    className=""
+                    className="flex flex-col justify-center items-center"
                     onClick={() => {
                       setCurrentItem(item);
                       navigate("/inspect");
                     }}
                   >
+                    <img src={item.img} alt="img" className="cardImg" />
                     <p className="name text-center break-words">{item.name}</p>
                     <p className="brand">{item.brand}</p>
                     <p className="type">{item.type}</p>
@@ -136,12 +147,13 @@ export default function Home({
               item.style === "Luxury" && (
                 <span className="card">
                   <button
-                    className=""
+                    className="flex flex-col justify-center items-center"
                     onClick={() => {
                       setCurrentItem(item);
                       navigate("/inspect");
                     }}
                   >
+                    <img src={item.img} alt="img" className="cardImg" />{" "}
                     <p className="name text-center break-words">{item.name}</p>
                     <p className="brand">{item.brand}</p>
                     <p className="type">{item.type}</p>

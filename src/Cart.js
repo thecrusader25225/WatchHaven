@@ -55,18 +55,29 @@ export default function Cart({
 
   console.log("Subtotal: ", subtotal);
   return (
-    <div className="w-1/3 min-w-96 h-full top-0 right-0 absolute border backdrop-blur-sm p-4 flex flex-col pt-24">
+    <div className="w-[calc(40%)] min-w-96 h-full top-0 right-0 absolute border backdrop-blur-sm p-4 flex flex-col pt-24 bg-black bg-opacity-50">
       <span className="flex justify-between">
         <p>Cart</p>
         <CgClose onClick={() => setIsCartOpen(false)} />
       </span>
       <span className="h-auto overflow-y-auto w-full">
         {cartItems.map((item) => (
-          <div className="w-full h-16 flex items-center justify-between border">
-            <p>{item.name}</p>
-            <p>Rs. {item.price * item.count} /-</p>
+          <div className="w-full h-auto flex items-center justify-between  my-2 border py-4">
+            <span className="flex items-center justify-between  w-2/3">
+              <span className="flex items-center">
+                <img
+                  src={item.img}
+                  alt="img"
+                  className="cardImg mx-2 w-16 h-16 min-w-16 min-h-16"
+                />
+                <span className="flex flex-col justify-center">
+                  <p>{item.name}</p>
+                  <p>Rs. {item.price * item.count} /-</p>
+                </span>
+              </span>
+              <p className="p-2 font-bold "> x{item.count}</p>
+            </span>
             <span className="flex">
-              <p>{item.count}</p>
               <GrSubtract onClick={() => handleSubtractItemCount(item)} />
               <GrAdd onClick={() => handleAddItemCount(item)} />
               <CgClose onClick={() => handleUnlist(item)} />

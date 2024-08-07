@@ -12,6 +12,32 @@ import ad1 from "./Images/ad/ad1.png";
 import ad2 from "./Images/ad/ad2.png";
 import ad3 from "./Images/ad/ad3.png";
 
+import id0 from "./Images/id0.png";
+import id1 from "./Images/id1.png";
+import id2 from "./Images/id2.png";
+import id3 from "./Images/id3.png";
+import id4 from "./Images/id4.png";
+import id5 from "./Images/id5.png";
+import id6 from "./Images/id6.png";
+import id7 from "./Images/id7.png";
+import id8 from "./Images/id8.png";
+import id9 from "./Images/id9.png";
+import id10 from "./Images/id10.png";
+import id11 from "./Images/id11.png";
+import id12 from "./Images/id12.png";
+import id13 from "./Images/id13.png";
+import id14 from "./Images/id14.png";
+import id15 from "./Images/id15.png";
+import id16 from "./Images/id16.png";
+import id17 from "./Images/id17.png";
+import id18 from "./Images/id18.png";
+import id19 from "./Images/id19.png";
+import id20 from "./Images/id20.png";
+import id21 from "./Images/id21.png";
+import id22 from "./Images/id22.png";
+import id23 from "./Images/id23.png";
+import id24 from "./Images/id24.png";
+
 const defaultItems = [
   {
     id: 0,
@@ -23,6 +49,7 @@ const defaultItems = [
     price: 712500,
     description:
       "An iconic diver's watch known for its robustness and water resistance. Perfect for underwater adventures and everyday elegance.",
+    img: id0,
   },
   {
     id: 1,
@@ -34,6 +61,7 @@ const defaultItems = [
     price: 2625000,
     description:
       "The ultimate status symbol featuring an 18K gold case and bracelet. Displays both day and date, exuding timeless luxury.",
+    img: id1,
   },
   {
     id: 2,
@@ -45,6 +73,7 @@ const defaultItems = [
     price: 450000,
     description:
       "A classic and versatile timepiece with a water-resistant design and scratch-resistant sapphire crystal. Ideal for everyday wear.",
+    img: id2,
   },
   {
     id: 3,
@@ -56,6 +85,7 @@ const defaultItems = [
     price: 825000,
     description:
       "A robust sports watch with dual time zone functionality and a durable ceramic bezel. Perfect for travelers and adventurers.",
+    img: id3,
   },
   {
     id: 4,
@@ -67,6 +97,7 @@ const defaultItems = [
     price: 615000,
     description:
       "Designed for extreme conditions, the Explorer features luminous hands and water resistance, making it perfect for explorers.",
+    img: id4,
   },
   {
     id: 5,
@@ -78,6 +109,7 @@ const defaultItems = [
     price: 390000,
     description:
       "A professional diver’s watch with helium escape valve and exceptional water resistance. Ideal for diving enthusiasts.",
+    img: id5,
   },
   {
     id: 6,
@@ -89,6 +121,7 @@ const defaultItems = [
     price: 487500,
     description:
       "The legendary Moonwatch, worn by astronauts. Features a chronograph and tachymeter, embodying Omega’s pioneering spirit.",
+    img: id6,
   },
   {
     id: 7,
@@ -100,6 +133,7 @@ const defaultItems = [
     price: 337500,
     description:
       "A sophisticated dress watch with a co-axial movement and date display. Crafted in stainless steel for a sleek look.",
+    img: id7,
   },
   {
     id: 8,
@@ -111,6 +145,7 @@ const defaultItems = [
     price: 300000,
     description:
       "Elegance and simplicity define this timepiece, featuring a date display and sapphire crystal. Perfect for formal occasions.",
+    img: id8,
   },
   {
     id: 9,
@@ -122,6 +157,7 @@ const defaultItems = [
     price: 412500,
     description:
       "Combines sophistication with ruggedness. Features a water-resistant design and co-axial movement for precise timekeeping.",
+    img: id9,
   },
   {
     id: 10,
@@ -133,6 +169,7 @@ const defaultItems = [
     price: 3750,
     description:
       "A tough and durable sports watch, known for its shock resistance and water resistance. Ideal for active lifestyles.",
+    img: id10,
   },
   {
     id: 11,
@@ -144,6 +181,7 @@ const defaultItems = [
     price: 22500,
     description:
       "Combines sporty design with advanced technology, featuring a chronograph and Bluetooth connectivity for smart functions.",
+    img: id11,
   },
   {
     id: 12,
@@ -155,6 +193,7 @@ const defaultItems = [
     price: 15000,
     description:
       "Built for the outdoors, featuring triple sensor technology and solar power. Ideal for hiking and adventure enthusiasts.",
+    img: id12,
   },
   {
     id: 13,
@@ -166,6 +205,7 @@ const defaultItems = [
     price: 1500,
     description:
       "A retro-style digital watch with an electro-luminescent backlight and stopwatch functionality. Perfect for vintage lovers.",
+    img: id13,
   },
   {
     id: 14,
@@ -177,6 +217,7 @@ const defaultItems = [
     price: 7500,
     description:
       "A stylish and durable watch for active women. Features water resistance and world time functionality for global travelers.",
+    img: id14,
   },
   {
     id: 15,
@@ -188,6 +229,7 @@ const defaultItems = [
     price: 33750,
     description:
       "A robust diver’s watch with day and date display, designed for underwater adventures. Known for its reliability.",
+    img: id15,
   },
   {
     id: 16,
@@ -199,6 +241,7 @@ const defaultItems = [
     price: 37500,
     description:
       "Inspired by cocktail bars, this dress watch features a beautiful dial and sapphire crystal. Perfect for formal events.",
+    img: id16,
   },
   {
     id: 17,
@@ -210,6 +253,7 @@ const defaultItems = [
     price: 7500,
     description:
       "A reliable everyday watch with day and date display and an exhibition case back. Offers great value and durability.",
+    img: id17,
   },
   {
     id: 18,
@@ -221,6 +265,7 @@ const defaultItems = [
     price: 127500,
     description:
       "Combines solar power with GPS functionality, offering world time features. A high-tech luxury watch for global travelers.",
+    img: id18,
   },
   {
     id: 19,
@@ -232,6 +277,7 @@ const defaultItems = [
     price: 45000,
     description:
       "A solar-powered dress watch with chronograph functionality and sapphire crystal. Perfect for both work and formal occasions.",
+    img: id19,
   },
   {
     id: 20,
@@ -243,6 +289,7 @@ const defaultItems = [
     price: 22125,
     description:
       "A versatile smartwatch with heart rate monitor and GPS. Combines modern technology with Fossil’s signature style.",
+    img: id20,
   },
   {
     id: 21,
@@ -254,6 +301,7 @@ const defaultItems = [
     price: 24375,
     description:
       "A sophisticated dress watch featuring a skeleton dial and stainless steel case. Perfect for showcasing your unique style.",
+    img: id21,
   },
   {
     id: 22,
@@ -265,6 +313,7 @@ const defaultItems = [
     price: 11250,
     description:
       "A casual yet elegant watch with chronograph functionality and a comfortable leather strap. Ideal for everyday wear.",
+    img: id22,
   },
   {
     id: 23,
@@ -276,6 +325,7 @@ const defaultItems = [
     price: 13125,
     description:
       "A refined dress watch featuring chronograph and date display. Combines functionality with a sophisticated design.",
+    img: id23,
   },
   {
     id: 24,
@@ -287,6 +337,7 @@ const defaultItems = [
     price: 8625,
     description:
       "A stylish and elegant watch for women, featuring a date display and stainless steel case. Perfect for daily wear.",
+    img: id24,
   },
 ];
 
