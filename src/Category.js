@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 import { IoReturnUpBack } from "react-icons/io5";
+import Heart from "./Heart";
+import AddToCart from "./AddToCart";
 export default function Category({
   prop,
   allItems,
@@ -18,6 +20,8 @@ export default function Category({
   setIsWishlistOpen,
   wishlistItems,
   setWishlistItems,
+  addItemToWishlist,
+  isDarkMode,
 }) {
   const navigate = useNavigate();
   return (
@@ -36,9 +40,9 @@ export default function Category({
       {allItems.map(
         (item) =>
           item[prop] === currentParam[prop] && (
-            <span className="w-full h-auto p-4 flex justify-between items-center border">
+            <span className="w-full h-auto p-4 flex justify-between items-center bg-white bg-opacity-10 rounded-xl my-2">
               <button
-                className="flex items-center"
+                className="flex items-center w-3/4 "
                 onClick={() => {
                   setCurrentItem(item);
                   navigate("/inspect");
@@ -63,14 +67,33 @@ export default function Category({
                   <p className="price text-2xl">Rs. {item.price} /-</p>
                 </span>
               </button>
-              <span className="flex justify-between  h-16 border">
+              <span className="flex justify-between w-40">
+                {wishlistItems.some(
+                  (wishlistItem) => wishlistItem.id === item.id
+                ) ? (
+                  <Heart
+                    isChecked={true}
+                    item={item}
+                    setWishlistItems={setWishlistItems}
+                    addItemToWishList={addItemToWishlist}
+                    wishlistItems={wishlistItems}
+                  />
+                ) : (
+                  <Heart
+                    isChecked={false}
+                    item={item}
+                    setWishlistItems={setWishlistItems}
+                    addItemToWishList={addItemToWishlist}
+                    wishlistItems={wishlistItems}
+                  />
+                )}
                 {cartItems.some((cartItem) => cartItem.id === item.id) ? (
                   <button onClick={() => setIsCartOpen(true)}>
-                    Go to Cart
+                    <AddToCart text={"Go To Cart"} />
                   </button>
                 ) : (
                   <button onClick={() => addItemToCart(item)}>
-                    Add To Cart
+                    <AddToCart text={"Add To Cart"} />
                   </button>
                 )}
               </span>
@@ -84,6 +107,8 @@ export default function Category({
           setIsCartOpen={setIsCartOpen}
           subtotal={subtotal}
           setSubtotal={setSubtotal}
+          setCurrentItem={setCurrentItem}
+          isDarkMode={isDarkMode}
         />
       )}
       {isWishlistOpen && (
@@ -94,6 +119,8 @@ export default function Category({
           setIsCartOpen={setIsCartOpen}
           addItemToCart={addItemToCart}
           cartItems={cartItems}
+          setCurrentItem={setCurrentItem}
+          isDarkMode={isDarkMode}
         />
       )}
     </div>

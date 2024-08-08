@@ -9,6 +9,8 @@ export default function Cart({
   setIsCartOpen,
   subtotal,
   setSubtotal,
+  setCurrentItem,
+  isDarkMode,
 }) {
   const navigate = useNavigate();
 
@@ -55,15 +57,27 @@ export default function Cart({
 
   console.log("Subtotal: ", subtotal);
   return (
-    <div className="w-[calc(40%)] min-w-96 h-full top-0 right-0 absolute border backdrop-blur-sm p-4 flex flex-col pt-24 bg-black bg-opacity-50">
+    <div
+      className={`w-[calc(40%)] min-w-96 h-full top-0 right-0 absolute border backdrop-blur-3xl p-4 flex flex-col pt-24 bg-opacity-60 ${
+        isDarkMode ? "bg-slate-950" : "bg-white"
+      }`}
+    >
       <span className="flex justify-between">
-        <p>Cart</p>
+        <p className="subhead">Cart</p>
         <CgClose onClick={() => setIsCartOpen(false)} />
       </span>
+      <div className="w-full min-h-0.5 p-0.5 my-2 bg-white rounded-full" />
       <span className="h-auto overflow-y-auto w-full">
         {cartItems.map((item) => (
-          <div className="w-full h-auto flex items-center justify-between  my-2 border py-4">
-            <span className="flex items-center justify-between  w-2/3">
+          <div className="w-full h-auto flex items-center justify-between  my-2 bg-white bg-opacity-10 rounded-xl py-4">
+            <span
+              className="flex items-center justify-between  w-2/3"
+              onClick={() => {
+                navigate("/inspect");
+                setCurrentItem(item);
+                setIsCartOpen(false);
+              }}
+            >
               <span className="flex items-center">
                 <img
                   src={item.img}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { GrAdd, GrSubtract } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
+import AddToCart from "./AddToCart";
 
 export default function Wishlist({
   wishlistItems,
@@ -10,6 +11,8 @@ export default function Wishlist({
   setIsCartOpen,
   addItemToCart,
   cartItems,
+  setCurrentItem,
+  isDarkMode,
 }) {
   const navigate = useNavigate();
   const [subtotal, setSubtotal] = useState(0);
@@ -28,15 +31,27 @@ export default function Wishlist({
 
   console.log("Subtotal: ", subtotal);
   return (
-    <div className="w-[calc(40%)] min-w-96 h-full top-0 right-0 absolute border backdrop-blur-sm p-4 flex flex-col pt-24 bg-black bg-opacity-50">
+    <div
+      className={`w-[calc(40%)] min-w-96 h-full top-0 right-0 absolute bg-opacity-60 backdrop-blur-3xl p-4 flex flex-col pt-24 ${
+        isDarkMode ? "bg-slate-950" : "bg-white"
+      }`}
+    >
       <span className="flex justify-between">
-        <p>Wishlist</p>
+        <p className="subhead">Wishlist</p>
         <CgClose onClick={() => setIsWishlistOpen(false)} />
       </span>
+      <div className="w-full min-h-0.5 p-0.5 my-2 bg-white rounded-full" />
       <span className="h-auto overflow-y-auto w-full">
         {wishlistItems.map((item) => (
-          <div className="w-full h-auto my-2 py-2 flex items-center justify-between border">
-            <span className="flex items-center">
+          <div className="w-full h-auto my-2 py-2 flex items-center justify-between bg-white bg-opacity-10 rounded-xl">
+            <span
+              className="flex items-center"
+              onClick={() => {
+                navigate("/inspect");
+                setCurrentItem(item);
+                setIsWishlistOpen(false);
+              }}
+            >
               <img
                 src={item.img}
                 alt="img"
@@ -55,10 +70,12 @@ export default function Wishlist({
                     setIsWishlistOpen(false);
                   }}
                 >
-                  Go to Cart
+                  <AddToCart text={"Go To Cart"} />
                 </button>
               ) : (
-                <button onClick={() => addItemToCart(item)}>Add To Cart</button>
+                <button onClick={() => addItemToCart(item)}>
+                  <AddToCart text={"Add To Cart"} />
+                </button>
               )}
               <CgClose onClick={() => handleUnlist(item)} />
             </span>

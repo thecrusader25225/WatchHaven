@@ -357,6 +357,9 @@ export default function App() {
   const [currentParam, setCurrentParam] = useState({ brand: "", style: "" });
   const [subtotal, setSubtotal] = useState(0);
 
+  const [isDarkMode, setIsDarkMode] = useState(
+    getLocalStorage("isDarkMode", false)
+  );
   useEffect(() => {
     const updatedCart = getLocalStorage("cartItems", defaultItems);
     if (!updatedCart) setCartItems([]);
@@ -367,7 +370,8 @@ export default function App() {
     //to sync cartItems and wishlistItems with localStorage whenever new item is added or changed
     setLocalStorage("cartItems", cartItems);
     setLocalStorage("wishlistItems", wishlistItems);
-  }, [cartItems, wishlistItems]);
+    setLocalStorage("isDarkMode", isDarkMode);
+  }, [cartItems, wishlistItems, isDarkMode]);
 
   const addItemToCart = (item) => {
     // item.count++; //increasing item count when added
@@ -386,20 +390,29 @@ export default function App() {
     console.log("1 new item added to wishlist");
   };
 
-  const removeItemFromWishlist = (id) => {
-    const updatedWishlist = wishlistItems.filter((item) => item.id !== id);
-    setWishlistItems(updatedWishlist);
-  };
+  // const removeItemFromWishlist = (id) => {
+  //   const updatedWishlist = wishlistItems.filter((item) => item.id !== id);
+  //   setWishlistItems(updatedWishlist);
+  // };
   console.log(cartItems);
 
   return (
     <>
       <BrowserRouter>
-        <div className="w-screen h-screen bg-black text-white">
+        <div
+          className={`w-screen h-screen ${
+            isDarkMode
+              ? "bg-gradient-to-tr from-slate-950 via-slate-900 to-slate-950 text-white"
+              : "bg-gradient-to-tr from-amber-50 via-red-100 to-orange-100 text-black"
+          }`}
+        >
           <Navbar
             cartItems={cartItems}
             setIsCartOpen={setIsCartOpen}
             setIsWishlistOpen={setIsWishlistOpen}
+            isWishlistOpen={isWishlistOpen}
+            setIsDarkMode={setIsDarkMode}
+            isDarkMode={isDarkMode}
           />
           <Routes>
             <Route
@@ -426,6 +439,7 @@ export default function App() {
                   subtotal={subtotal}
                   setSubtotal={setSubtotal}
                   adImages={adImages}
+                  isDarkMode={isDarkMode}
                 />
               }
             />
@@ -449,6 +463,7 @@ export default function App() {
                   setSubtotal={setSubtotal}
                   setCurrentItem={setCurrentItem}
                   addItemToWishlist={addItemToWishlist}
+                  isDarkMode={isDarkMode}
                 />
               }
             />
@@ -471,6 +486,8 @@ export default function App() {
                   setWishlistItems={setWishlistItems}
                   subtotal={subtotal}
                   setSubtotal={setSubtotal}
+                  addItemToWishlist={addItemToWishlist}
+                  isDarkMode={isDarkMode}
                 />
               }
             />
@@ -487,6 +504,14 @@ export default function App() {
                   currentParam={currentParam}
                   setCartItems={setCartItems}
                   isCartOpen={isCartOpen}
+                  isWishlistOpen={isWishlistOpen}
+                  setIsWishlistOpen={setIsWishlistOpen}
+                  wishlistItems={wishlistItems}
+                  setWishlistItems={setWishlistItems}
+                  subtotal={subtotal}
+                  setSubtotal={setSubtotal}
+                  addItemToWishlist={addItemToWishlist}
+                  isDarkMode={isDarkMode}
                 />
               }
             />
