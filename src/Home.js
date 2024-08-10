@@ -53,7 +53,7 @@ export default function Home({
               className="card btn"
               onClick={() => {
                 setCurrentParam((prev) => ({ ...prev, style: style }));
-                navigate("/category/styles");
+                navigate(`/category/style/${style}`);
               }}
             >
               <img
@@ -77,7 +77,7 @@ export default function Home({
               className="card btn"
               onClick={() => {
                 setCurrentParam((prev) => ({ ...prev, brand: brand }));
-                navigate("/category/brands");
+                navigate(`/category/brand/${brand}`);
               }}
             >
               <img

@@ -358,7 +358,7 @@ export default function App() {
   const [subtotal, setSubtotal] = useState(0);
 
   const [isDarkMode, setIsDarkMode] = useState(
-    getLocalStorage("isDarkMode", false)
+    getLocalStorage("isDarkMode", true)
   );
   useEffect(() => {
     const updatedCart = getLocalStorage("cartItems", defaultItems);
@@ -468,10 +468,9 @@ export default function App() {
               }
             />
             <Route
-              path="/category/styles"
+              path="/category/:prop/:type"
               element={
                 <Category
-                  prop="style"
                   allItems={allItems}
                   cartItems={cartItems}
                   addItemToCart={addItemToCart}
@@ -491,30 +490,7 @@ export default function App() {
                 />
               }
             />
-            <Route
-              path="/category/brands"
-              element={
-                <Category
-                  prop="brand"
-                  allItems={allItems}
-                  cartItems={cartItems}
-                  addItemToCart={addItemToCart}
-                  setCurrentItem={setCurrentItem}
-                  setIsCartOpen={setIsCartOpen}
-                  currentParam={currentParam}
-                  setCartItems={setCartItems}
-                  isCartOpen={isCartOpen}
-                  isWishlistOpen={isWishlistOpen}
-                  setIsWishlistOpen={setIsWishlistOpen}
-                  wishlistItems={wishlistItems}
-                  setWishlistItems={setWishlistItems}
-                  subtotal={subtotal}
-                  setSubtotal={setSubtotal}
-                  addItemToWishlist={addItemToWishlist}
-                  isDarkMode={isDarkMode}
-                />
-              }
-            />
+
             <Route
               path="/checkout"
               element={<Checkout cartItems={cartItems} subtotal={subtotal} />}

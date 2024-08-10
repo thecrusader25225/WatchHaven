@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 import {
@@ -17,7 +17,6 @@ import { BiLeftArrow } from "react-icons/bi";
 import { CgMenuLeft } from "react-icons/cg";
 import { FaAngleLeft } from "react-icons/fa";
 export default function Category({
-  prop,
   allItems,
   setCurrentItem,
   cartItems,
@@ -35,7 +34,10 @@ export default function Category({
   addItemToWishlist,
   isDarkMode,
 }) {
+  console.log(cartItems);
   const navigate = useNavigate();
+  const { prop, type } = useParams();
+  console.log(prop);
   return (
     <div className="w-full px-4 xl:px-[16%] mx-auto h-full pt-24 flex flex-col overflow-y-auto">
       <button
@@ -46,11 +48,11 @@ export default function Category({
         <p>Back</p>
       </button>
       <p className="subhead">
-        Showing results for "{currentParam[prop]}" {prop}
+        Showing results for "{type}" {prop}
       </p>
       {allItems.map(
         (item) =>
-          item[prop] === currentParam[prop] && (
+          item[prop] === type && (
             <span className="w-full h-auto p-4 flex justify-between items-center bg-white bg-opacity-10 rounded-xl my-2">
               <button
                 className="flex items-center w-3/4 "
