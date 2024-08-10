@@ -1,14 +1,14 @@
 import "./ThemeButton.css";
 export default function ThemeButton({ isDarkMode, setIsDarkMode }) {
   return (
-    <label class="ui-switch">
+    <label className="ui-switch">
       <input
         type="checkbox"
         checked={isDarkMode}
-        onClick={() => setIsDarkMode((prev) => !prev)}
+        onChange={() => setIsDarkMode((prev) => !prev)}
       />
-      <div class="slider">
-        <div class="circle" />
+      <div className="slider">
+        <div className="circle" />
       </div>
     </label>
   );

@@ -51,9 +51,12 @@ export default function Category({
         Showing results for "{type}" {prop}
       </p>
       {allItems.map(
-        (item) =>
+        (item, index) =>
           item[prop] === type && (
-            <span className="w-full h-auto p-4 flex justify-between items-center bg-white bg-opacity-10 rounded-xl my-2">
+            <span
+              key={index}
+              className="w-full h-auto p-4 flex justify-between items-center bg-white bg-opacity-10 rounded-xl my-2"
+            >
               <button
                 className="flex items-center w-3/4 "
                 onClick={() => {
@@ -101,13 +104,13 @@ export default function Category({
                   />
                 )}
                 {cartItems.some((cartItem) => cartItem.id === item.id) ? (
-                  <button onClick={() => setIsCartOpen(true)}>
+                  <span onClick={() => setIsCartOpen(true)}>
                     <AddToCart text={"Go To Cart"} />
-                  </button>
+                  </span>
                 ) : (
-                  <button onClick={() => addItemToCart(item)}>
+                  <span onClick={() => addItemToCart(item)}>
                     <AddToCart text={"Add To Cart"} />
-                  </button>
+                  </span>
                 )}
               </span>
             </span>

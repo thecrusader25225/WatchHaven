@@ -64,18 +64,18 @@ export default function Wishlist({
             </span>
             <span className="flex items-center ">
               {cartItems.some((cartItem) => cartItem.id === item.id) ? (
-                <button
+                <span
                   onClick={() => {
                     setIsCartOpen(true);
                     setIsWishlistOpen(false);
                   }}
                 >
                   <AddToCart text={"Go To Cart"} />
-                </button>
+                </span>
               ) : (
-                <button onClick={() => addItemToCart(item)}>
+                <span onClick={() => addItemToCart(item)}>
                   <AddToCart text={"Add To Cart"} />
-                </button>
+                </span>
               )}
               <CgClose className="sbtn" onClick={() => handleUnlist(item)} />
             </span>

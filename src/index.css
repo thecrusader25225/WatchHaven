@@ -25,7 +25,7 @@
         @apply text-sm font-mono
     }
     .card{
-        @apply flex flex-col  w-80 h-auto max-h-[calc(500px)] flex-shrink-0 justify-center items-center p-4 rounded-xl m-2 bg-white bg-opacity-10
+        @apply flex flex-col  w-80 h-auto max-h-[calc(500px)] flex-shrink-0 justify-between items-center p-4 rounded-xl m-2 bg-white bg-opacity-10
     }
     .section{
         @apply  w-full h-auto  flex flex-col justify-center my-8

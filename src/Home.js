@@ -48,8 +48,9 @@ export default function Home({
         </p>
         <div className="hbar" />
         <span className="flex w-full h-full overflow-x-auto">
-          {styles.map((style) => (
+          {styles.map((style, index) => (
             <button
+              key={index}
               className="card btn"
               onClick={() => {
                 setCurrentParam((prev) => ({ ...prev, style: style }));
@@ -72,8 +73,9 @@ export default function Home({
         <p className="subhead">Iconic Watches from the Best Brands</p>
         <div className="hbar" />
         <span className="w-full h-full overflow-x-auto flex">
-          {brands.map((brand) => (
+          {brands.map((brand, index) => (
             <button
+              key={index}
               className="card btn"
               onClick={() => {
                 setCurrentParam((prev) => ({ ...prev, brand: brand }));
@@ -97,9 +99,9 @@ export default function Home({
         <div className="hbar" />
         <span className="w-full h-full flex overflow-x-auto">
           {allItems.map(
-            (item) =>
+            (item, index) =>
               item.style === "Sports" && (
-                <span className="card btn">
+                <span className="card btn" key={index}>
                   <button
                     className="flex flex-col justify-center items-center"
                     onClick={() => {
@@ -115,18 +117,18 @@ export default function Home({
                   </button>
                   <span className="flex justify-between w-full h-16 ">
                     {cartItems.some((cartItem) => cartItem.id === item.id) ? (
-                      <button
+                      <span
                         onClick={() => {
                           setIsCartOpen(true);
                           setIsWishlistOpen(false);
                         }}
                       >
                         <AddToCart text={"Go To Cart"} />
-                      </button>
+                      </span>
                     ) : (
-                      <button onClick={() => addItemToCart(item)}>
+                      <span onClick={() => addItemToCart(item)}>
                         <AddToCart text={"Add To Cart"} />
-                      </button>
+                      </span>
                     )}
                     {wishlistItems.some(
                       (wishlistItem) => wishlistItem.id === item.id
@@ -159,9 +161,9 @@ export default function Home({
         <div className="hbar" />
         <span className="w-full h-full flex overflow-x-auto">
           {allItems.map(
-            (item) =>
+            (item, index) =>
               item.style === "Luxury" && (
-                <span className="card btn">
+                <span className="card btn" key={index}>
                   <button
                     className="flex flex-col justify-center items-center"
                     onClick={() => {
@@ -177,18 +179,18 @@ export default function Home({
                   </button>
                   <span className="flex justify-between w-full h-16  ">
                     {cartItems.some((cartItem) => cartItem.id === item.id) ? (
-                      <button
+                      <span
                         onClick={() => {
                           setIsCartOpen(true);
                           setIsWishlistOpen(false);
                         }}
                       >
                         <AddToCart text={"Go To Cart"} />
-                      </button>
+                      </span>
                     ) : (
-                      <button onClick={() => addItemToCart(item)}>
+                      <span onClick={() => addItemToCart(item)}>
                         <AddToCart text={"Add To Cart"} />
-                      </button>
+                      </span>
                     )}
                     {wishlistItems.some(
                       (wishlistItem) => wishlistItem.id === item.id
@@ -216,15 +218,15 @@ export default function Home({
         </span>
       </div>
 
-      {/* classical watch */}
+      {/* casual watch */}
       <div className="section">
         <p className="subhead">Casual vibes, classic Time</p>
         <div className="hbar" />
         <span className="w-full h-full flex overflow-x-auto">
           {allItems.map(
-            (item) =>
+            (item, index) =>
               item.style === "Casual" && (
-                <span className="card btn">
+                <span className="card btn" key={index}>
                   <button
                     className="flex flex-col justify-center items-center"
                     onClick={() => {
@@ -240,18 +242,18 @@ export default function Home({
                   </button>
                   <span className="flex justify-between w-full h-16  ">
                     {cartItems.some((cartItem) => cartItem.id === item.id) ? (
-                      <button
+                      <span
                         onClick={() => {
                           setIsCartOpen(true);
                           setIsWishlistOpen(false);
                         }}
                       >
                         <AddToCart text={"Go To Cart"} />
-                      </button>
+                      </span>
                     ) : (
-                      <button onClick={() => addItemToCart(item)}>
+                      <span onClick={() => addItemToCart(item)}>
                         <AddToCart text={"Add To Cart"} />
-                      </button>
+                      </span>
                     )}
                     {wishlistItems.some(
                       (wishlistItem) => wishlistItem.id === item.id

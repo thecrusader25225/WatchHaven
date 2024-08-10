@@ -76,13 +76,13 @@ export default function Inspect({
               <div className="hbar" />
               <span className="flex justify-between w-full my-2 ">
                 {cartItems.some((cartItem) => cartItem.id === item.id) ? (
-                  <button onClick={() => setIsCartOpen(true)}>
+                  <span onClick={() => setIsCartOpen(true)}>
                     <AddToCart text={"Go To Cart"} />
-                  </button>
+                  </span>
                 ) : (
-                  <button onClick={() => addItemToCart(item)}>
+                  <span onClick={() => addItemToCart(item)}>
                     <AddToCart text={"Add To Cart"} />
-                  </button>
+                  </span>
                 )}
                 {wishlistItems.some(
                   (wishlistItem) => wishlistItem.id === item.id
