@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Slideshow({
   images,
-  interval = 3000,
+  interval = 3500,
   setCurrentItem,
   allItems,
 }) {
@@ -40,10 +40,14 @@ export default function Slideshow({
             index === currentIndex
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
-          } duration-1000 p-8`}
+          } duration-1000 p-8 cursor-pointer`}
           onClick={() => handleClick(index)}
         >
-          <img src={image} alt="slide" className="w-full h-full object-cover" />
+          <img
+            src={image}
+            alt="slide"
+            className="w-full h-full object-cover  hover:scale-105 duration-200"
+          />
         </div>
       ))}
     </div>

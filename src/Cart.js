@@ -58,27 +58,27 @@ export default function Cart({
   console.log("Subtotal: ", subtotal);
   return (
     <div
-      className={`w-[calc(40%)] min-w-96 h-full top-0 right-0 absolute border backdrop-blur-3xl p-4 flex flex-col pt-24 bg-opacity-60 ${
+      className={`w-[calc(40%)] min-w-96 h-full top-0 right-0 absolute  backdrop-blur-3xl p-4 flex flex-col pt-24 bg-opacity-60 ${
         isDarkMode ? "bg-slate-950" : "bg-white"
       }`}
     >
-      <span className="flex justify-between">
+      <span className="flex justify-between items-center">
         <p className="subhead">Cart</p>
-        <CgClose onClick={() => setIsCartOpen(false)} />
+        <CgClose onClick={() => setIsCartOpen(false)} className="sbtn" />
       </span>
       <div className="w-full min-h-0.5 p-0.5 my-2 bg-white rounded-full" />
-      <span className="h-auto overflow-y-auto w-full">
+      <span className="h-auto overflow-y-auto w-full overflow-x-hidden">
         {cartItems.map((item) => (
-          <div className="w-full h-auto flex items-center justify-between  my-2 bg-white bg-opacity-10 rounded-xl py-4">
+          <div className="w-full h-auto flex items-center justify-between  my-2 bg-white bg-opacity-10 rounded-xl py-4 px-2">
             <span
-              className="flex items-center justify-between  w-2/3"
+              className="flex items-center justify-between  w-2/3 cursor-pointer "
               onClick={() => {
                 navigate("/inspect");
                 setCurrentItem(item);
                 setIsCartOpen(false);
               }}
             >
-              <span className="flex items-center">
+              <span className="flex items-center hover:underline">
                 <img
                   src={item.img}
                   alt="img"
@@ -92,17 +92,28 @@ export default function Cart({
               <p className="p-2 font-bold "> x{item.count}</p>
             </span>
             <span className="flex">
-              <GrSubtract onClick={() => handleSubtractItemCount(item)} />
-              <GrAdd onClick={() => handleAddItemCount(item)} />
-              <CgClose onClick={() => handleUnlist(item)} />
+              <GrSubtract
+                onClick={() => handleSubtractItemCount(item)}
+                className="sbtn"
+              />
+              <GrAdd
+                onClick={() => handleAddItemCount(item)}
+                className="sbtn"
+              />
+              <CgClose onClick={() => handleUnlist(item)} className="sbtn" />
             </span>
           </div>
         ))}
       </span>
       {cartItems.length > 0 ? (
-        <span className="flex">
+        <span className="flex items-center justify-between">
           <p>Subtotal: Rs. {subtotal} /-</p>{" "}
-          <button onClick={() => navigate("/checkout")}>Checkout</button>
+          <button
+            onClick={() => navigate("/checkout")}
+            className="hover:underline"
+          >
+            Checkout
+          </button>
         </span>
       ) : (
         <p>Add items to Cart!</p>

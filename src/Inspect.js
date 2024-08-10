@@ -8,6 +8,7 @@ import Wishlist from "./Wishlist";
 import { useRef } from "react";
 import Heart from "./Heart";
 import AddToCart from "./AddToCart";
+import { FaAngleLeft } from "react-icons/fa";
 export default function Inspect({
   item,
   isCartOpen,
@@ -41,10 +42,13 @@ export default function Inspect({
       <div ref={inspectRef} />
       <div className="w-full px-4 xl:px-[16%] justify-center items-center h-full pt-28  flex flex-col overflow-y-auto">
         <div className="w-full h-full flex flex-col">
-          <span className="flex items-center" onClick={() => navigate("/")}>
-            <IoReturnUpBack className="  text-white" />
+          <button
+            className="  text-xl flex items-center hover:underline"
+            onClick={() => navigate("/")}
+          >
+            <FaAngleLeft />
             <p>Back</p>
-          </span>
+          </button>
           <div className="flex  items-center bg-white bg-opacity-10 rounded-xl my-2 p-4 w-full h-auto min-h-[calc(400px)]  ">
             <img src={item.img} alt="img" className="cardImg mx-2" />
             <span className="flex flex-col w-full h-full items-start justify-center">

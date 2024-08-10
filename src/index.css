@@ -4,7 +4,7 @@
 
 @layer components{
     .subhead{
-        @apply text-3xl 
+        @apply text-3xl text-center
     }
     .name{
         @apply text-2xl 
@@ -28,7 +28,7 @@
         @apply flex flex-col  w-80 h-auto max-h-[calc(500px)] flex-shrink-0 justify-center items-center p-4 rounded-xl m-2 bg-white bg-opacity-10
     }
     .section{
-        @apply  w-full h-auto  flex flex-col justify-center 
+        @apply  w-full h-auto  flex flex-col justify-center my-8
 
     }
     .cardImg{
@@ -36,6 +36,12 @@
     }
     .hbar{
         @apply w-11/12 self-center p-0.5 min-h-0.5 bg-white rounded-full my-4
+    }
+    .sbtn{
+        @apply rounded-full hover:bg-white hover:bg-opacity-10 p-2 text-3xl cursor-pointer duration-200 ease-linear hover:scale-125
+    }
+    .btn{
+        @apply hover:scale-95 duration-200 ease-linear
     }
 }
 /* Custom scrollbar for webkit browsers */

@@ -18,7 +18,9 @@ export default function Navbar({
       <span className="absolute flex items-center text-3xl right-0">
         <ThemeButton isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <HiHeart
-          className={isWishlistOpen ? `text-red-500` : `text-white`}
+          className={` sbtn text-5xl ml-2 ${
+            isWishlistOpen ? `text-red-500` : `text-white`
+          }`}
           onClick={() => {
             setIsCartOpen(false);
             setIsWishlistOpen(true);

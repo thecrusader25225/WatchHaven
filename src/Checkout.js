@@ -1,3 +1,4 @@
+import { FaAngleLeft } from "react-icons/fa";
 import { IoReturnUpBack } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
@@ -11,10 +12,14 @@ export default function Checkout({
   const navigate = useNavigate();
   return (
     <div className="w-full px-4 xl:px-[16%] mx-auto h-full pt-24 flex flex-col overflow-y-auto ">
-      <span className="flex">
-        <IoReturnUpBack onClick={() => navigate("/")} />
-        <p>Checkout</p>
-      </span>
+      <button
+        className="flex items-center hover:underline"
+        onClick={() => navigate("/")}
+      >
+        <FaAngleLeft />
+        <p>Back</p>
+      </button>
+      <p>Checkout</p>
       <span className="h-auto overflow-y-auto w-full flex flex-col">
         {cartItems.map((item) => (
           <div className="w-full h-auto p-4 flex items-center justify-between bg-white bg-opacity-10 rounded-xl my-2">
@@ -51,7 +56,7 @@ export default function Checkout({
         <p>Total: </p>
         <p>Rs. {subtotal + 400} /-</p>
       </span>
-      <button className="flex justify-end">Place Order</button>
+      <button className="flex justify-end hover:underline">Place Order</button>
     </div>
   );
 }

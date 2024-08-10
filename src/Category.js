@@ -1,9 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
-import { IoReturnUpBack } from "react-icons/io5";
+import {
+  IoHandLeft,
+  IoReturnDownBackOutline,
+  IoReturnUpBack,
+} from "react-icons/io5";
 import Heart from "./Heart";
 import AddToCart from "./AddToCart";
+import { BsBack } from "react-icons/bs";
+import { GrReturn } from "react-icons/gr";
+import { GiReturnArrow } from "react-icons/gi";
+import { PiKeyReturn } from "react-icons/pi";
+import { IoIosReturnLeft } from "react-icons/io";
+import { BiLeftArrow } from "react-icons/bi";
+import { CgMenuLeft } from "react-icons/cg";
+import { FaAngleLeft } from "react-icons/fa";
 export default function Category({
   prop,
   allItems,
@@ -26,17 +38,16 @@ export default function Category({
   const navigate = useNavigate();
   return (
     <div className="w-full px-4 xl:px-[16%] mx-auto h-full pt-24 flex flex-col overflow-y-auto">
-      <span className="flex">
-        <button>
-          <IoReturnUpBack
-            className="text-3xl w-12"
-            onClick={() => navigate("/")}
-          />
-        </button>
-        <p className="subhead">
-          Showing results for "{currentParam[prop]}" {prop}
-        </p>
-      </span>
+      <button
+        className="text-xl flex items-center hover:underline"
+        onClick={() => navigate("/")}
+      >
+        <FaAngleLeft />
+        <p>Back</p>
+      </button>
+      <p className="subhead">
+        Showing results for "{currentParam[prop]}" {prop}
+      </p>
       {allItems.map(
         (item) =>
           item[prop] === currentParam[prop] && (
@@ -53,7 +64,7 @@ export default function Category({
                   alt="img"
                   className="cardImg mx-2 w-24 h-24 min-w-24 min-h-24"
                 />
-                <span className="flex flex-col justify-center items-start">
+                <span className="flex flex-col justify-center items-start hover:underline">
                   <p className="name text-start break-words">{item.name}</p>
                   <span>
                     <p className="inline">

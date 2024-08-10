@@ -36,16 +36,16 @@ export default function Wishlist({
         isDarkMode ? "bg-slate-950" : "bg-white"
       }`}
     >
-      <span className="flex justify-between">
+      <span className="flex justify-between items-center">
         <p className="subhead">Wishlist</p>
-        <CgClose onClick={() => setIsWishlistOpen(false)} />
+        <CgClose className="sbtn" onClick={() => setIsWishlistOpen(false)} />
       </span>
       <div className="w-full min-h-0.5 p-0.5 my-2 bg-white rounded-full" />
-      <span className="h-auto overflow-y-auto w-full">
+      <span className="h-auto overflow-y-auto w-full overflow-x-hidden">
         {wishlistItems.map((item) => (
           <div className="w-full h-auto my-2 py-2 flex items-center justify-between bg-white bg-opacity-10 rounded-xl">
             <span
-              className="flex items-center"
+              className="flex items-center cursor-pointer hover:underline"
               onClick={() => {
                 navigate("/inspect");
                 setCurrentItem(item);
@@ -62,7 +62,7 @@ export default function Wishlist({
                 <p>Rs. {item.price} /-</p>
               </span>
             </span>
-            <span className="flex items-center">
+            <span className="flex items-center ">
               {cartItems.some((cartItem) => cartItem.id === item.id) ? (
                 <button
                   onClick={() => {
@@ -77,7 +77,7 @@ export default function Wishlist({
                   <AddToCart text={"Add To Cart"} />
                 </button>
               )}
-              <CgClose onClick={() => handleUnlist(item)} />
+              <CgClose className="sbtn" onClick={() => handleUnlist(item)} />
             </span>
           </div>
         ))}
