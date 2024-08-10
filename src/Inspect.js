@@ -3,14 +3,13 @@ import Cart from "./Cart";
 import { BsBack } from "react-icons/bs";
 import { IoMdReturnLeft } from "react-icons/io";
 import { IoReturnUpBack } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Wishlist from "./Wishlist";
 import { useRef } from "react";
 import Heart from "./Heart";
 import AddToCart from "./AddToCart";
 import { FaAngleLeft } from "react-icons/fa";
 export default function Inspect({
-  item,
   isCartOpen,
   setIsCartOpen,
   cartItems,
@@ -29,6 +28,15 @@ export default function Inspect({
   isDarkMode,
 }) {
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const item = JSON.parse(
+    decodeURIComponent(escape(atob(queryParams.get("item"))))
+  );
+
+  const { brand } = useParams();
+
   const inspectRef = useRef(null);
   const scrollUp = () => {
     inspectRef.current.scrollIntoView({
@@ -37,6 +45,9 @@ export default function Inspect({
       inline: "nearest",
     });
   };
+  console.log("inspect item", item);
+  console.log("brand", brand);
+  console.log("current item", currentItem);
   return (
     <>
       <div ref={inspectRef} />
@@ -112,13 +123,18 @@ export default function Inspect({
             <span className="flex flex-col justify-center w-full h-full">
               {allItems.map(
                 (item) =>
-                  item.brand === currentItem.brand &&
-                  item !== currentItem && (
+                  item.brand === brand && (
                     <button
                       className="flex justify-between items-center p-2 bg-white bg-opacity-10 rounded-xl m-2"
                       onClick={() => {
                         setCurrentItem(item);
                         scrollUp();
+
+                        navigate(
+                          `/inspect/${item.brand}?item=${btoa(
+                            unescape(encodeURIComponent(JSON.stringify(item)))
+                          )}`
+                        );
                       }}
                     >
                       <span className="flex items-center">

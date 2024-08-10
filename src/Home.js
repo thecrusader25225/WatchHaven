@@ -106,7 +106,11 @@ export default function Home({
                     className="flex flex-col justify-center items-center"
                     onClick={() => {
                       setCurrentItem(item);
-                      navigate("/inspect");
+                      navigate(
+                        `/inspect/${item.brand}?item=${btoa(
+                          unescape(encodeURIComponent(JSON.stringify(item)))
+                        )}`
+                      );
                     }}
                   >
                     <img src={item.img} alt="img" className="cardImg" />
@@ -168,7 +172,11 @@ export default function Home({
                     className="flex flex-col justify-center items-center"
                     onClick={() => {
                       setCurrentItem(item);
-                      navigate("/inspect");
+                      navigate(
+                        `/inspect/${item.brand}?item=${btoa(
+                          unescape(encodeURIComponent(JSON.stringify(item)))
+                        )}`
+                      );
                     }}
                   >
                     <img src={item.img} alt="img" className="cardImg" />{" "}
@@ -231,7 +239,11 @@ export default function Home({
                     className="flex flex-col justify-center items-center"
                     onClick={() => {
                       setCurrentItem(item);
-                      navigate("/inspect");
+                      navigate(
+                        `/inspect/${item.brand}?item=${btoa(
+                          unescape(encodeURIComponent(JSON.stringify(item)))
+                        )}`
+                      );
                     }}
                   >
                     <img src={item.img} alt="img" className="cardImg" />{" "}

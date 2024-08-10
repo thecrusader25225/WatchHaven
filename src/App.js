@@ -404,7 +404,7 @@ export default function App() {
             isDarkMode
               ? "bg-gradient-to-tr from-slate-950 via-slate-900 to-slate-950 text-white"
               : "bg-gradient-to-tr from-amber-50 via-red-100 to-orange-100 text-black"
-          }`}
+          } duration-200`}
         >
           <Navbar
             cartItems={cartItems}
@@ -444,7 +444,7 @@ export default function App() {
               }
             />
             <Route
-              path="/inspect"
+              path="/inspect/:brand"
               element={
                 <Inspect
                   item={currentItem}

@@ -47,7 +47,11 @@ export default function Wishlist({
             <span
               className="flex items-center cursor-pointer hover:underline"
               onClick={() => {
-                navigate("/inspect");
+                navigate(
+                  `/inspect/${item.brand}?item=${btoa(
+                    unescape(encodeURIComponent(JSON.stringify(item)))
+                  )}`
+                );
                 setCurrentItem(item);
                 setIsWishlistOpen(false);
               }}

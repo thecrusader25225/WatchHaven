@@ -61,7 +61,11 @@ export default function Category({
                 className="flex items-center w-3/4 "
                 onClick={() => {
                   setCurrentItem(item);
-                  navigate("/inspect");
+                  navigate(
+                    `/inspect/${item.brand}?item=${btoa(
+                      unescape(encodeURIComponent(JSON.stringify(item)))
+                    )}`
+                  );
                 }}
               >
                 <img

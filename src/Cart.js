@@ -73,7 +73,11 @@ export default function Cart({
             <span
               className="flex items-center justify-between  w-2/3 cursor-pointer "
               onClick={() => {
-                navigate("/inspect");
+                navigate(
+                  `/inspect/${item.brand}?item=${btoa(
+                    unescape(encodeURIComponent(JSON.stringify(item)))
+                  )}`
+                );
                 setCurrentItem(item);
                 setIsCartOpen(false);
               }}
