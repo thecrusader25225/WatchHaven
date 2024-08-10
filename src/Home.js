@@ -32,7 +32,11 @@ export default function Home({
   return (
     <div className="w-full px-4 xl:px-[16%] mx-auto h-full pt-24 flex flex-col overflow-y-auto">
       <div className=" w-full min-h-[calc(600px)]">
-        <Slideshow images={adImages} />
+        <Slideshow
+          images={adImages}
+          setCurrentItem={setCurrentItem}
+          allItems={allItems}
+        />
       </div>
       <div className="hbar" />
 
