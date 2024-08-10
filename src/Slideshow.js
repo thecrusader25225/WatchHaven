@@ -5,6 +5,7 @@ export default function Slideshow({
   images,
   interval = 3500,
   setCurrentItem,
+  currentItem,
   allItems,
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,14 +22,27 @@ export default function Slideshow({
   }, [images, interval]);
 
   const handleClick = (index) => {
-    navigate("/inspect");
-
     if (index === 0) {
       setCurrentItem(allItems[1]);
+      navigate(
+        `/inspect/${"Rolex"}?item=${btoa(
+          unescape(encodeURIComponent(JSON.stringify(allItems[1])))
+        )}`
+      );
     } else if (index === 1) {
-      setCurrentItem(allItems[3]);
+      setCurrentItem(allItems[6]);
+      navigate(
+        `/inspect/${"Omega"}?item=${btoa(
+          unescape(encodeURIComponent(JSON.stringify(allItems[6])))
+        )}`
+      );
     } else {
       setCurrentItem(allItems[20]);
+      navigate(
+        `/inspect/${"Fossil"}?item=${btoa(
+          unescape(encodeURIComponent(JSON.stringify(allItems[20])))
+        )}`
+      );
     }
   };
 

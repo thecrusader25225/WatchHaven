@@ -28,6 +28,7 @@ export default function Home({
   setSubtotal,
   adImages,
   isDarkMode,
+  currentItem,
 }) {
   const navigate = useNavigate();
 
@@ -38,6 +39,7 @@ export default function Home({
           images={adImages}
           setCurrentItem={setCurrentItem}
           allItems={allItems}
+          currentItem={currentItem}
         />
       </div>
 

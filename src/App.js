@@ -1,4 +1,3 @@
-import Cart from "./Cart";
 import Category from "./Category";
 import Checkout from "./Checkout";
 import Home from "./Home";
@@ -390,10 +389,6 @@ export default function App() {
     console.log("1 new item added to wishlist");
   };
 
-  // const removeItemFromWishlist = (id) => {
-  //   const updatedWishlist = wishlistItems.filter((item) => item.id !== id);
-  //   setWishlistItems(updatedWishlist);
-  // };
   console.log(cartItems);
 
   return (
@@ -440,6 +435,7 @@ export default function App() {
                   setSubtotal={setSubtotal}
                   adImages={adImages}
                   isDarkMode={isDarkMode}
+                  currentItem={currentItem}
                 />
               }
             />
