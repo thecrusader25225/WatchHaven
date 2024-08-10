@@ -349,7 +349,7 @@ export default function App() {
   const [wishlistItems, setWishlistItems] = useState(
     getLocalStorage("wishlistItems", [])
   );
-  const [allItems, setAllItems] = useState([...[defaultItems]]);
+  const [allItems, setAllItems] = useState([...defaultItems]);
   const [currentItem, setCurrentItem] = useState("");
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
