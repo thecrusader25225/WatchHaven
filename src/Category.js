@@ -1,20 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
-import {
-  IoHandLeft,
-  IoReturnDownBackOutline,
-  IoReturnUpBack,
-} from "react-icons/io5";
 import Heart from "./Heart";
 import AddToCart from "./AddToCart";
-import { BsBack } from "react-icons/bs";
-import { GrReturn } from "react-icons/gr";
-import { GiReturnArrow } from "react-icons/gi";
-import { PiKeyReturn } from "react-icons/pi";
-import { IoIosReturnLeft } from "react-icons/io";
-import { BiLeftArrow } from "react-icons/bi";
-import { CgMenuLeft } from "react-icons/cg";
 import { FaAngleLeft } from "react-icons/fa";
 export default function Category({
   allItems,
